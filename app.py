@@ -4,19 +4,15 @@ client = MongoClient()
 db = client.Playlister
 playlists = db.playlists
 from flask import Flask, render_template, request, redirect, url_for
+import os
+
+# host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
+host = os.environ.get('MONGODB_URI')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
+playlists = db.playlists
 
 app = Flask(__name__)
-
-# @app.route('/')
-# def index():
-#     """Return Homepage"""
-#     return render_template('home.html', msg = 'Flask is Cool!')
-
-# playlists = [
-#     { 'title': 'Cat Videos', 'description': 'Cats acting weird' },
-#     { 'title': '80\'s Music', 'description': 'Don\'t stop believing!' },
-#     { 'title': 'Celtic Music', 'description': 'Tir na Nog' }
-# ]
 
 @app.route('/')
 def playlists_index():
@@ -74,4 +70,4 @@ def playlists_delete(playlist_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
