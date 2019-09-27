@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 
 # host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
+#Advice from Zain Raza
 host = os.environ.get('MONGODB_URI')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
