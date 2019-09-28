@@ -82,7 +82,7 @@ def comments_new():
     }
     print(comment)
     comment_id = comments.insert_one(comment).inserted_id
-    return redirect(url_for('playlists_show', playlist_id=playlist_id))
+    return redirect(url_for('playlists_show.html', playlist_id=playlist_id))
 
 
 
