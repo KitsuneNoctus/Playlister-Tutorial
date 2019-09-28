@@ -3,9 +3,9 @@ from bson.objectid import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
 import os
 
-client = MongoClient()
-db = client.Playlister
-playlists = db.playlists
+# client = MongoClient()
+# db = client.Playlister
+# playlists = db.playlists
 
 # host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
 #Advice from Zain Raza
@@ -82,7 +82,7 @@ def comments_new():
     }
     print(comment)
     comment_id = comments.insert_one(comment).inserted_id
-    return redirect(url_for('playlists_show.html', playlist_id=playlist_id))
+    return redirect(url_for('playlists_show', playlist_id=playlist_id))
 
 
 
