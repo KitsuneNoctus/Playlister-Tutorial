@@ -7,9 +7,9 @@ client = MongoClient()
 db = client.Playlister
 playlists = db.playlists
 
-db = client.get_default_database()
-playlists = db.playlists
-comments = db.comments
+# db = client.get_default_database()
+# playlists = db.playlists
+# comments = db.comments
 
 # host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
 #Advice from Zain Raza
@@ -78,14 +78,14 @@ def playlists_delete(playlist_id):
 @app.route('/playlists/comments', methods=['POST'])
 def comments_new():
     """Submit a new comment."""
-    comment = {
-        'title': request.form.get('title'),
-        'content': request.form.get('content'),
-        'playlist_id': ObjectId(request.form.get('playlist_id'))
-    }
-    print(comment)
-    comment_id = comments.insert_one(comment).inserted_id
-    return redirect(url_for('playlists_show', playlist_id=playlist_id))
+    # comment = {
+    #     'title': request.form.get('title'),
+    #     'content': request.form.get('content'),
+    #     'playlist_id': ObjectId(request.form.get('playlist_id'))
+    # }
+    # print(comment)
+    # comment_id = comments.insert_one(comment).inserted_id
+    # return redirect(url_for('playlists_show', playlist_id=playlist_id))
 
 
 
