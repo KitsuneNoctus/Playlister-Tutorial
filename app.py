@@ -10,6 +10,7 @@ from datetime import datetime
 
 # host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
 #Advice from Zain Raza
+#'mongodb://localhost:27017/Playlister' may or may not be necessary
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
