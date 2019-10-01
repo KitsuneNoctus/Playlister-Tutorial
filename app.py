@@ -4,9 +4,9 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 from datetime import datetime
 
-client = MongoClient()
-db = client.Playlister
-playlists = db.playlists
+# client = MongoClient()
+# db = client.Playlister
+# playlists = db.playlists
 
 # host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
 #Advice from Zain Raza
